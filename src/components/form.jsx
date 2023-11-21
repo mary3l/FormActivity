@@ -7,22 +7,29 @@ function form({ formData, handleInputChange, checkLogin }) {
   const isFormInvalid = !formData.username || !formData.password;
 
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div
+      data-testid="app-container"
+      className="flex items-center justify-center h-screen"
+    >
       <form className="bg-white p-10 shadow-md rounded-lg flex flex-col items-center">
-        <InputField
-          label="Username"
-          id="username"
-          type="text"
-          value={formData.username}
-          onChange={handleInputChange}
-        />
-        <InputField
-          label="Password"
-          id="password"
-          type="password"
-          value={formData.password}
-          onChange={handleInputChange}
-        />
+        <label>
+          Username
+          <InputField
+            id="username"
+            type="text"
+            value={formData.username}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Password
+          <InputField
+            id="password"
+            type="password"
+            value={formData.password}
+            onChange={handleInputChange}
+          />
+        </label>
         <div className="mt-4">
           <Button
             disabled={isFormInvalid}
